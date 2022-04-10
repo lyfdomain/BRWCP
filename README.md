@@ -1,2 +1,2 @@
 # BRWCP
-DPI predict method
+DPI prediction method
