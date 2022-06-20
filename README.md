@@ -1,6 +1,6 @@
 # BRWCP
 BRCWP: Drug-Protein Interaction Prediction by Correcting the Effect of Incomplete Information in Heterogeneous Information
-Quick Start
+# Quick Start
 to reproduce our results:
 1. Save data in source_data to ./source_data
 2. Run dti_devide to reproduce DTI data and their indexes for each fold and save them to ./dataset
