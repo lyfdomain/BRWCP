@@ -5,14 +5,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 import sklearn.metrics
 rs = 0.8
 n_fold=10
-dr_dis=np.loadtxt("source_data/mat_drug_disease.txt")
-dr_pre=np.loadtxt("source_data/mat_drug_protein.txt")
-pre_dis=np.loadtxt("source_data/mat_protein_disease.txt")
-dr_dr=np.loadtxt("source_data/mat_drug_drug.txt")
-dr_se=np.loadtxt("source_data/mat_drug_se.txt")
-pre_pre=np.loadtxt("source_data/mat_protein_protein.txt")
-simdr=np.loadtxt("source_data/Similarity_Matrix_Drugs.txt")
-simpre=np.loadtxt("source_data/Similarity_Matrix_Proteins.txt")
+dr_dis=np.loadtxt("./source_data/mat_drug_disease.txt")
+dr_pre=np.loadtxt("./source_data/mat_drug_protein.txt")
+pre_dis=np.loadtxt("./source_data/mat_protein_disease.txt")
+dr_dr=np.loadtxt("./source_data/mat_drug_drug.txt")
+dr_se=np.loadtxt("./source_data/mat_drug_se.txt")
+pre_pre=np.loadtxt("./source_data/mat_protein_protein.txt")
+simdr=np.loadtxt("./source_data/Similarity_Matrix_Drugs.txt")
+simpre=np.loadtxt("./source_data/Similarity_Matrix_Proteins.txt")
 
 drnum=len(dr_dis)
 disnum=len(dr_dis[0])
@@ -35,8 +35,8 @@ def dis_lapsimm(dd):
                 mm[i, j] = dd[i, j] / np.sqrt(np.sum(dd[:, j]) * np.sum(dd[:, j]))
     return mm
 
-index_1 = np.loadtxt("dataset/index_1.txt")
-index_0 = np.loadtxt("dataset/index_0.txt")
+index_1 = np.loadtxt("./dataset/index_1.txt")
+index_0 = np.loadtxt("./dataset/index_0.txt")
 index = np.hstack((index_1, index_0))
 reala=dr_pre
 sr = simdr
@@ -51,7 +51,7 @@ pre_simdti = cosine_similarity(cutpre_dis, cutpre_dis)
 dr_simdti = cosine_similarity(cutdr_dis, cutdr_dis)
 
 for f in trange(n_fold):
-    a = np.loadtxt("dataset/DTI" + str(f) + ".txt")
+    a = np.loadtxt("./dataset/DTI" + str(f) + ".txt")
     idx=index[f,:]
     R1 = np.copy(a)
     R2 = np.copy(a)
@@ -154,10 +154,10 @@ precision_mean = np.mean(precision, axis=0)
 print('The auc of prediction is:', sklearn.metrics.auc(fpr_mean, tpr_mean))
 print('The aupr of prediction is:', sklearn.metrics.auc(recall_mean, precision_mean)+recall_mean[0]*precision_mean[0])
 
-np.savetxt('result/fpr_list.txt', fpr_mean)
-np.savetxt('result/tpr_list.txt', tpr_mean)
-np.savetxt('result/recall_list.txt', recall_mean)
-np.savetxt('result/precision_list.txt', precision_mean)
+np.savetxt('./result/fpr_list.txt', fpr_mean)
+np.savetxt('./result/tpr_list.txt', tpr_mean)
+np.savetxt('./result/recall_list.txt', recall_mean)
+np.savetxt('./result/precision_list.txt', precision_mean)
 
 
 
