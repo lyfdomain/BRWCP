@@ -4,9 +4,9 @@ from tqdm import trange
 
 
 fold=10
-dr_pre=np.loadtxt("source_data/mat_drug_protein.txt")
-simdr=np.loadtxt("source_data/Similarity_Matrix_Drugs.txt")
-simpre=np.loadtxt("source_data/Similarity_Matrix_Proteins.txt")
+dr_pre=np.loadtxt("./source_data/mat_drug_protein.txt")
+simdr=np.loadtxt("./source_data/Similarity_Matrix_Drugs.txt")
+simpre=np.loadtxt("./source_data/Similarity_Matrix_Proteins.txt")
 
 prenum=len(simpre)
 
@@ -25,7 +25,7 @@ random.shuffle(list_1)
 #
 array_1=np.array(list_1)[0:fold*group_size1]
 group_data1=np.reshape(array_1,(fold,group_size1))
-np.savetxt("dataset/index_1.txt",group_data1)
+np.savetxt("./dataset/index_1.txt",group_data1)
 
 
 i=0
@@ -41,7 +41,7 @@ random.shuffle(list_0)
 
 array_0=np.array(list_0)[0:fold*group_size0]
 group_data0=np.reshape(array_0,(fold,group_size0))
-np.savetxt("dataset/index_0.txt",group_data0)
+np.savetxt("./dataset/index_0.txt",group_data0)
 
 
 f = 0
@@ -53,7 +53,7 @@ for f in trange(fold):
         c = int(group_data1[f, i] % prenum)
         DTI[r, c] = 0
         i += 1  # 得到每次交叉验证中所使用的A矩阵
-    np.savetxt("dataset/DTI"+str(f)+".txt",DTI)
+    np.savetxt("./dataset/DTI"+str(f)+".txt",DTI)
 
 
 
