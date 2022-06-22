@@ -12,7 +12,9 @@ to reproduce our results:
 #fr: dimensionals of low-dimensional feature of drugs, defult=500 \
 #fp: dimensionals of low-dimensional feature of proteins, defult=500 \
 #K: number of neighbors retained after pruning, defult=5 \
-\# \eta: decay term of neighbors' weight, defult=0.7 
+\# \eta: decay term of neighbors' weight, defult=0.7 \ 
+#l_1: number of random walks in the incomplete information network, defult=5\
+#l_2: number of random walks in the complete information network, defult=5\
 # Reproduce ablation experiments
 5. After step4, run without_correct.py to get tpr_list_wc, fpr_list_wc, precision list_wc, and reacll_list_wc, and save them to ./result 
 6. Run only_feature.py to get tpr_list_of, fpr_list_of, precision list_of, and reacll_list_of, and save them to ./result 
