@@ -12,7 +12,7 @@ to reproduce our results:
 #fr: dimensionals of low-dimensional feature of drugs, defult=500 \
 #fp: dimensionals of low-dimensional feature of proteins, defult=500 \
 #K: number of neighbors retained after pruning, defult=5 \
-\# $\eta$: decay term of neighbors' weight, defult=0.7 \ 
+\# $\eta$: decay term of neighbors' weight, defult=0.7  \ 
 \# $l_1$: number of random walks in the incomplete information network, defult=5\
 \# $l_2$: number of random walks in the complete information network, defult=5\
 # Reproduce ablation experiments
