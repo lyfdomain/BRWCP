@@ -6,7 +6,7 @@ to reproduce our results:
 2. Run dti_devide.py to reproduce DTI data and their indexes for each fold and save them to ./dataset
 3. Run run_main.py to reproduce the ten fold mean true positive rate list, false positive rate list, precision list, and reacll list about drug of the prediction results, and save them to ./result  
 ## parameters in run_main.py are:
-###rs: restart probability for random walk, defult=0.8 
+### rs: restart probability for random walk, defult=0.8 
 rs: restart probability for random walk, defult=0.8 
 rs: restart probability for random walk, defult=0.8 
 rs: restart probability for random walk, defult=0.8 
