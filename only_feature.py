@@ -5,14 +5,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 import sklearn.metrics
 rs = 0.8
 n_fold=10
-dr_dis=np.loadtxt("C:/Users/lyf/Desktop/source_data/mat_drug_disease.txt")
-dr_pre=np.loadtxt("C:/Users/lyf/Desktop/source_data/mat_drug_protein.txt")
-pre_dis=np.loadtxt("C:/Users/lyf/Desktop/source_data/mat_protein_disease.txt")
-dr_dr=np.loadtxt("C:/Users/lyf/Desktop/source_data/mat_drug_drug.txt")
-dr_se=np.loadtxt("C:/Users/lyf/Desktop/source_data/mat_drug_se.txt")
-pre_pre=np.loadtxt("C:/Users/lyf/Desktop/source_data/mat_protein_protein.txt")
-simdr=np.loadtxt("C:/Users/lyf/Desktop/source_data/Similarity_Matrix_Drugs.txt")
-simpre=np.loadtxt("C:/Users/lyf/Desktop/source_data/Similarity_Matrix_Proteins.txt")
+dr_dis=np.loadtxt("./source_data/mat_drug_disease.txt")
+dr_pre=np.loadtxt("./source_data/mat_drug_protein.txt")
+pre_dis=np.loadtxt("./source_data/mat_protein_disease.txt")
+dr_dr=np.loadtxt("./source_data/mat_drug_drug.txt")
+dr_se=np.loadtxt("./source_data/mat_drug_se.txt")
+pre_pre=np.loadtxt("./source_data/mat_protein_protein.txt")
 
 drnum=len(dr_dis)
 disnum=len(dr_dis[0])
@@ -35,8 +33,8 @@ def dis_lapsimm(dd):
                 mm[i, j] = dd[i, j] / np.sqrt(np.sum(dd[:, j]) * np.sum(dd[:, j]))
     return mm
 
-index_1 = np.loadtxt("C:/Users/lyf/Desktop/source_data/index_1.txt")
-index_0 = np.loadtxt("C:/Users/lyf/Desktop/source_data/index_0.txt")
+index_1 = np.loadtxt("./source_data/index_1.txt")
+index_0 = np.loadtxt("./source_data/index_0.txt")
 index = np.hstack((index_1, index_0))
 reala=dr_pre
 
@@ -49,7 +47,7 @@ pre_simdti = cosine_similarity(cutpre_dis, cutpre_dis)
 dr_simdti = cosine_similarity(cutdr_dis, cutdr_dis)
 
 for f in trange(n_fold):
-    a = np.loadtxt("C:/Users/lyf/Desktop/dataset2/DTI" + str(f) + ".txt")
+    a = np.loadtxt("./dataset/DTI" + str(f) + ".txt")
     idx=index[f,:]
     R1 = np.copy(a)
     R2 = np.copy(a)
