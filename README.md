@@ -8,3 +8,8 @@ to reproduce our results:
 4. Run draw_fig.py to reproduce the AUC and AUPR of the prediction result and get the ROC/PRC firgure as follow
 ![Figure_111](https://user-images.githubusercontent.com/103353319/174630493-65b9feee-38f5-4a42-a511-5b715a1cc6a8.png)
 # Reproduce ablation experiments
+5. After step4, run without_correct.py to get tpr_list_wc, fpr_list_wc, precision list_wc, and reacll_list_wc, and save them to ./result 
+6. Run only_feature.py to get tpr_list_of, fpr_list_of, precision list_of, and reacll_list_of, and save them to ./result 
+7. Run only_sequence.py to get tpr_list_os, fpr_list_os, precision list_os, and reacll_list_os, and save them to ./result
+8. Run draw_fig2.py to reproduce the AUC and AUPR of the prediction result and get the ROC/PRC firgure as follow 
+![Figure_xin1](https://user-images.githubusercontent.com/103353319/174951264-512f2955-d24d-446b-b0d5-742866bb5635.png)
