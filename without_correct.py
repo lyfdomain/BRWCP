@@ -150,10 +150,10 @@ precision_mean = np.mean(precision, axis=0)
 print('The auc of prediction is:', sklearn.metrics.auc(fpr_mean, tpr_mean))
 print('The aupr of prediction is:', sklearn.metrics.auc(recall_mean, precision_mean)+recall_mean[0]*precision_mean[0])
 
-np.savetxt('result/fpr_list_of.txt', fpr_mean)
-np.savetxt('result/tpr_list_of.txt', tpr_mean)
-np.savetxt('result/recall_list_of.txt', recall_mean)
-np.savetxt('result/precision_list_of.txt', precision_mean)
+np.savetxt('result/fpr_list_wc.txt', fpr_mean)
+np.savetxt('result/tpr_list_wc.txt', tpr_mean)
+np.savetxt('result/recall_list_wc.txt', recall_mean)
+np.savetxt('result/precision_list_wc.txt', precision_mean)
 
 
 
