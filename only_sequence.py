@@ -46,17 +46,14 @@ for f in trange(n_fold):
     idx=index[f,:]
     R1 = np.copy(a)
     R2 = np.copy(a)
-    mr=drug_lapsimm(dr_simdti)
-    md=dis_lapsimm(pre_simdti)
+    mr=drug_lapsimm(sr)
+    md=dis_lapsimm(sd)
     R1 = rs * mr.dot(R1) + (1-rs) * a
     R2 = rs * R2.dot(md) + (1-rs) * a
     R = a
     for i in range(R.shape[0]):
         for j in range(R.shape[1]):
             R[i][j] = max(R[i][j],(R1[i][j] + R2[i][j]) / 2)
-
-    for i in trange(5):
-        R = preprocess(K=5, drug_mat=dr_simdti, target_mat=pre_simdti, Y=R, a=a, rs=rs, miu=0.7)
 
     realvalue=np.zeros(R.shape)
     for i in range(len(idx)):
