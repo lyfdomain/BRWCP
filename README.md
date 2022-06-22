@@ -8,10 +8,10 @@ to reproduce our results:
 4. Run draw_fig.py to reproduce the AUC and AUPR of the prediction result and get the ROC/PRC firgure as follow
 ![Figure_111](https://user-images.githubusercontent.com/103353319/174630493-65b9feee-38f5-4a42-a511-5b715a1cc6a8.png)
 ## parameters in run_main.py are:
-#rs: restart probability for random walk, defult=0.8 \
-#fr: dimensionals of low-dimensional feature of drugs, defult=500 \
-#fp: dimensionals of low-dimensional feature of proteins, defult=500 \
-#K: number of neighbors retained after pruning, defult=5 \
+\# rs: restart probability for random walk, defult=0.8 \
+\# fr: dimensionals of low-dimensional feature of drugs, defult=500 \
+\# fp: dimensionals of low-dimensional feature of proteins, defult=500 \
+\# K: number of neighbors retained after pruning, defult=5 \
 \# $\eta$: decay term of neighbors' weight, defult=0.7 \
 \# $l_1$: number of random walks in the incomplete information network, defult=5\
 \# $l_2$: number of random walks in the complete information network, defult=5
