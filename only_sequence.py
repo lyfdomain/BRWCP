@@ -32,8 +32,8 @@ def dis_lapsimm(dd):
                 mm[i, j] = dd[i, j] / np.sqrt(np.sum(dd[:, j]) * np.sum(dd[:, j]))
     return mm
 
-index_1 = np.loadtxt("./source_data/index_1.txt")
-index_0 = np.loadtxt("./source_data/index_0.txt")
+index_1 = np.loadtxt("./dataset/index_1.txt")
+index_0 = np.loadtxt("./dataset/index_0.txt")
 index = np.hstack((index_1, index_0))
 reala=dr_pre
 sr = simdr
