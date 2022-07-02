@@ -6,7 +6,7 @@ to reproduce our results:
 2. Run dti_devide.py to reproduce DTI data and their indexes for each fold and save them to ./dataset
 3. Run run_main.py to reproduce the ten fold mean true positive rate list, false positive rate list, precision list, and reacll list about drug of the prediction results, and save them to ./result  
 4. Run draw_fig.py to reproduce the AUC and AUPR of the prediction result and get the ROC/PRC firgure as follow
-![Figure_111](https://user-images.githubusercontent.com/103353319/174630493-65b9feee-38f5-4a42-a511-5b715a1cc6a8.png)
+![Figure_1](https://user-images.githubusercontent.com/103353319/177000863-b8ba7df6-6696-4a62-a9d8-3c7b5d8343df.png)
 ## parameters in run_main.py are:
 \# rs: restart probability for random walk, defult=0.8 \
 \# fr: dimensionals of low-dimensional feature of drugs, defult=500 \
