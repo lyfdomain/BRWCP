@@ -3,13 +3,15 @@ from function import *
 from tqdm import trange
 from sklearn.metrics.pairwise import cosine_similarity
 import sklearn.metrics
+import copy
 rs = 0.8
 n_fold=10
 eta=0.7
 l_1=5
 l_2=5
 fr=500
-fp=500
+fp=300
+K=10
 dr_dis=np.loadtxt("./source_data/mat_drug_disease.txt")
 dr_pre=np.loadtxt("./source_data/mat_drug_protein.txt")
 pre_dis=np.loadtxt("./source_data/mat_protein_disease.txt")
@@ -58,21 +60,21 @@ dr_simdti = cosine_similarity(cutdr_dis, cutdr_dis)
 for f in trange(n_fold):
     a = np.loadtxt("./dataset/DTI" + str(f) + ".txt")
     idx=index[f,:]
-    R1 = np.copy(a)
-    R2 = np.copy(a)
+    R1 = copy.deepcopy(a)
+    R2 = copy.deepcopy(a)
     mr=drug_lapsimm(dr_simdti)
     md=dis_lapsimm(pre_simdti)
     R1 = rs * mr.dot(R1) + (1-rs) * a
     R2 = rs * R2.dot(md) + (1-rs) * a
-    R = a
+    R = copy.deepcopy(a)
     for i in range(R.shape[0]):
         for j in range(R.shape[1]):
             R[i][j] = max(R[i][j],(R1[i][j] + R2[i][j]) / 2)
 
     for i in trange(l_1):
-        R = preprocess(K=5, drug_mat=dr_simdti, target_mat=pre_simdti, Y=R, a=a, rs=rs, miu=eta)
+        R = preprocess(K=K, drug_mat=dr_simdti, target_mat=pre_simdti, Y=R, a=a, rs=rs, miu=eta)
     for i in trange(l_2):
-        R = preprocess(K=5, drug_mat=sr, target_mat=sd, Y=R, a=a, rs=rs, miu=eta)
+        R = preprocess(K=K, drug_mat=sr, target_mat=sd, Y=R, a=a, rs=rs, miu=eta)
 
     realvalue=np.zeros(R.shape)
     for i in range(len(idx)):
