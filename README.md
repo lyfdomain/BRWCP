@@ -21,3 +21,5 @@ to reproduce our results:
 7. Run only_sequence.py to get tpr_list_os, fpr_list_os, precision list_os, and reacll_list_os, and save them to ./result
 8. Run draw_fig2.py to reproduce the AUCs and AUPRs of the prediction results and get the ROC/PRC firgure (figure 5 in our paper) as follow 
 ![Figure_3](https://user-images.githubusercontent.com/103353319/177002170-e4a6ba41-8c54-450f-92ae-e0c4e4b1efab.png)
+# Contacts
+If you have any questions, please email Li Yanfei (lyfinf@163.com)
