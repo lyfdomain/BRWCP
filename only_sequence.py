@@ -3,6 +3,7 @@ from function import *
 from tqdm import trange
 from sklearn.metrics.pairwise import cosine_similarity
 import sklearn.metrics
+import copy
 rs = 0.8
 n_fold=10
 dr_dis=np.loadtxt("./source_data/mat_drug_disease.txt")
@@ -44,13 +45,13 @@ RR=np.zeros(dr_pre.shape)
 for f in trange(n_fold):
     a = np.loadtxt("./dataset/DTI" + str(f) + ".txt")
     idx=index[f,:]
-    R1 = np.copy(a)
-    R2 = np.copy(a)
+    R1 = copy.deepcopy(a)
+    R2 = copy.deepcopy(a)
     mr=drug_lapsimm(sr)
     md=dis_lapsimm(sd)
     R1 = rs * mr.dot(R1) + (1-rs) * a
     R2 = rs * R2.dot(md) + (1-rs) * a
-    R = a
+    R = copy.deepcopy(a)
     for i in range(R.shape[0]):
         for j in range(R.shape[1]):
             R[i][j] = max(R[i][j],(R1[i][j] + R2[i][j]) / 2)
